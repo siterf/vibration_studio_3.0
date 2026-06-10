@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Философия — «Вибрация». Пространство для трансформации. Ярославль</title>
+  <meta name="description" content="Смысл студии «Вибрация»: почему мы создали это место, во что мы верим и что означает трансформация на практике. Ярославль, ул. Некрасова, 68.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Unbounded:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-heading: 'Unbounded', sans-serif;
+      --font-body: 'Tenor Sans', serif;
+      --color-bg: #EFE7DA;
+      --color-bg-dark: #2A2620;
+      --color-stone: #C9BCA7;
+      --color-warm: #E5CBA8;
+      --color-accent: #B4916B;
+      --color-text: #2A2620;
+      --color-text-muted: #7A6E63;
+      --color-text-light: #EFE7DA;
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+      --transition-slow: 0.6s cubic-bezier(0.4,0,0.2,1);
+      --container: 860px;
+      --radius-md: 12px;
+      --radius-lg: 24px;
+      --radius-pill: 100px;
+      --shadow-soft: 0 4px 24px rgba(42,38,32,0.08);
+
+      /* Neumorphic Shadows (Светлая тема) */
+      --shadow-neumorph-out: 8px 8px 16px #DDD2C1, -8px -8px 16px #ffffff;
+      --shadow-neumorph-in: inset 6px 6px 12px #DDD2C1, inset -6px -6px 12px #ffffff;
+      --shadow-neumorph-out-sm: 4px 4px 8px #DDD2C1, -4px -4px 8px #ffffff;
+      --shadow-neumorph-in-sm: inset 3px 3px 6px #DDD2C1, inset -3px -3px 6px #ffffff;
+
+      /* Dark Neumorphic Shadows (Для темных блоков) */
+      --shadow-dark-out: 8px 8px 16px #1A1713, -8px -8px 16px #3A352D;
+      --shadow-dark-in: inset 6px 6px 12px #1A1713, inset -6px -6px 12px #3A352D;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { border: none; background: none; cursor: pointer; font-family: inherit; }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      background: rgba(239,231,218,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-stone);
+      box-shadow: var(--shadow-soft);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo img {
+      width: 40px; height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .nav-logo-text {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text);
+    }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      transition: color var(--transition);
+    }
+    .nav-back:hover { color: var(--color-accent); }
+    .nav-back svg { width: 18px; height: 18px; }
+
+    /* HERO */
+    .phil-hero {
+      padding: 160px 24px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .phil-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid var(--color-stone);
+      opacity: 0.3;
+    }
+    .phil-hero::after {
+      content: '';
+      position: absolute;
+      top: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      border: 1px solid var(--color-accent);
+      opacity: 0.15;
+    }
+    .phil-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+    .t-eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 20px;
+    }
+    .phil-h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--color-text);
+      margin-bottom: 28px;
+    }
+    .phil-hero-lead {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: var(--color-text-muted);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      max-width: var(--container);
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-stone);
+    }
+    .divider-symbol {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      color: var(--color-accent);
+      letter-spacing: 0.1em;
+    }
+
+    /* CONTENT */
+    .phil-content {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+
+    /* SECTION */
+    .phil-section {
+      margin-bottom: 80px;
+    }
+
+    .phil-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 20px;
+    }
+
+    .phil-h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      margin-bottom: 24px;
+    }
+
+    .phil-p {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .phil-p:last-child { margin-bottom: 0; }
+
+    /* QUOTE BLOCK */
+    .phil-quote {
+      margin: 48px 0;
+      padding: 40px 48px;
+      background: var(--color-bg-dark);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-dark-out);
+      position: relative;
+      overflow: hidden;
+    }
+    .phil-quote::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,188,167,0.1);
+    }
+    .phil-quote-text {
+      font-family: var(--font-body);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-style: italic;
+      color: var(--color-warm);
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+    .phil-quote-author {
+      margin-top: 20px;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(201,188,167,0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* PRINCIPLES */
+    .phil-principles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .phil-principle {
+      padding: 32px 28px;
+      background: var(--color-bg);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-neumorph-out);
+      transition: all var(--transition);
+    }
+    .phil-principle:hover {
+      transform: translateY(-4px);
+      box-shadow: 10px 10px 20px #DDD2C1, -10px -10px 20px #ffffff;
+    }
+    .phil-principle-num {
+      font-family: var(--font-heading);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+    }
+    .phil-principle-title {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .phil-principle-text {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* PHOTO */
+    .phil-photo {
+      margin: 60px 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 16/7;
+    }
+    .phil-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    /* FOUNDER */
+    .phil-founder {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .phil-founder-photo {
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-neumorph-out);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    .phil-founder-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    .phil-founder-name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .phil-founder-role {
+      font-size: 0.85rem;
+      color: var(--color-accent);
+      margin-bottom: 24px;
+    }
+
+    /* MOTTO BLOCK */
+    .phil-motto {
+      margin: 60px 0 0;
+      padding: 60px 48px;
+      background: var(--color-warm);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .phil-motto-text {
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 300;
+      color: var(--color-bg-dark);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: var(--transition);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--color-bg-dark);
+      color: var(--color-warm);
+      border: 1.5px solid var(--color-bg-dark);
+    }
+    .btn-primary:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn svg { width: 16px; height: 16px; transition: transform var(--transition); }
+    .btn:hover svg { transform: translateX(4px); }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .phil-hero { padding: 130px 24px 72px; }
+      .phil-principles { grid-template-columns: 1fr; }
+      .phil-founder { grid-template-columns: 1fr; }
+      .phil-founder-photo { max-width: 260px; }
+      .phil-quote { padding: 28px 28px; }
+      .phil-motto { padding: 40px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .phil-photo { aspect-ratio: 4/3; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.webp" alt="Вибрация">
+      <span class="nav-logo-text">Вибрация</span>
+    </a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M19 12H5M11 6l-6 6 6 6"/>
+      </svg>
+      На главную
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="phil-hero">
+  <div class="phil-hero-inner">
+    <span class="t-eyebrow">Философия · Смысл</span>
+    <h1 class="phil-h1">
+      Место, где<br>перестают<br>притворяться.
+    </h1>
+    <p class="phil-hero-lead">
+      Мы создали «Вибрацию» не как студию йоги. Мы создали её как поддерживающую среду — для тех, кто готов замедлиться, освободиться от внешнего шума и вернуться к своей истинной глубине.
+    </p>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true">
+  <div class="divider-line"></div>
+  <span class="divider-symbol">✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- CONTENT -->
+<div class="phil-content">
+
+  <!-- SECTION: Почему мы здесь -->
+  <div class="phil-section reveal">
+    <div class="phil-section-label">Откуда мы пришли</div>
+    <h2 class="phil-h2">
+      Мы сами прошли через это.
+    </h2>
+    <p class="phil-p">
+      «Вибрация» появилась из личного опыта её основательницы — опыта, в котором было много «правильных» решений, «нужных» встреч и совсем мало истинного себя. Момент, когда становится ясно: обычного отдыха уже недостаточно — нужны глубокие внутренние перемены.
+    </p>
+    <p class="phil-p">
+      Мы не строили очередной фитнес-центр. Мы искали то, чего не хватало нам самим в Ярославле: камерное пространство без суеты, без показухи и заготовленных скриптов. Место, куда можно прийти уставшим, растерянным или просто любопытствующим — и где любое ваше состояние будет принято.
+    </p>
+  </div>
+
+  <!-- PHOTO -->
+  <div class="phil-photo reveal">
+    <img src="images/space_main.webp"
+         alt="Пространство студии Вибрация — свет и тишина"
+         loading="lazy">
+  </div>
+
+  <!-- SECTION: Что мы делаем -->
+  <div class="phil-section reveal">
+    <div class="phil-section-label">Что происходит здесь</div>
+    <h2 class="phil-h2">
+      Практика — это не упражнение.<br>Это разговор с собой.
+    </h2>
+    <p class="phil-p">
+      Мы работаем с телом как с языком. Напряжение в спине — это не только биомеханика. Усталость — не только недосып. За каждым симптомом стоит паттерн, привычка, сценарий. Практики в «Вибрации» помогают увидеть их и начать менять.
+    </p>
+    <p class="phil-p">
+      Наши эксперты — не тренеры со скриптами. Это практикующие специалисты, которые сами проходили и продолжают проходить то, чему учат. Они не ведут вас по маршруту — они сопровождают.
+    </p>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="phil-quote reveal">
+    <div class="phil-quote-text">
+      Настоящее изменение начинается не когда ты узнаёшь что-то новое — а когда перестаёшь делать то, что тебя истощает.
+    </div>
+    <div class="phil-quote-author">— из разговоров в студии</div>
+  </div>
+
+  <!-- SECTION: Принципы -->
+  <div class="phil-section reveal">
+    <div class="phil-section-label">Как мы устроены</div>
+    <h2 class="phil-h2">Четыре принципа, которыми мы не жертвуем.</h2>
+    <div class="phil-principles">
+      <div class="phil-principle reveal">
+        <div class="phil-principle-num">01</div>
+        <div class="phil-principle-title">Камерность — это не ограничение</div>
+        <p class="phil-principle-text">У нас маленькие группы — намеренно. Чтобы эксперт видел каждого. Чтобы вы могли не прятаться за другими.</p>
+      </div>
+      <div class="phil-principle reveal reveal-delay-1">
+        <div class="phil-principle-num">02</div>
+        <div class="phil-principle-title">Без соревнования</div>
+        <p class="phil-principle-text">Здесь не сравнивают, не оценивают, не подталкивают. Темп у каждой свой. Это принцип, а не лозунг.</p>
+      </div>
+      <div class="phil-principle reveal">
+        <div class="phil-principle-num">03</div>
+        <div class="phil-principle-title">Уровень — это не поза, а внимание</div>
+        <p class="phil-principle-text">Нас не интересует, насколько красиво вы сидите в асане. Нас интересует, что происходит внутри, когда вы в ней находитесь.</p>
+      </div>
+      <div class="phil-principle reveal reveal-delay-1">
+        <div class="phil-principle-num">04</div>
+        <div class="phil-principle-title">Детали имеют значение</div>
+        <p class="phil-principle-text">Свет, запах, температура, музыка — мы думаем об этом. Потому что среда влияет на состояние, а состояние влияет на всё остальное.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Основательница -->
+  <div class="phil-section reveal">
+    <div class="phil-section-label">За этим пространством стоит человек</div>
+    <h2 class="phil-h2">Яна Шайдецкая — основательница «Вибрации».</h2>
+    <div class="phil-founder">
+      <div class="phil-founder-photo">
+        <img src="images/yana_portrait.webp" alt="Яна Шайдецкая — основательница студии Вибрация" loading="lazy">
+      </div>
+      <div>
+        <div class="phil-founder-name">Яна Шайдецкая</div>
+        <div class="phil-founder-role">Основательница студии «Вибрация»</div>
+        <p class="phil-p">
+          «Вибрация» — это пространство, в котором воплотилось моё представление о современной культуре заботы о себе — глубокой, осознанной и эстетически выверенной.
+        </p>
+        <p class="phil-p">
+          Идея студии родилась из понимания: в ритме городской жизни особенно важно иметь место, где можно замедлиться, восстановить ресурс и вернуться к себе.
+        </p>
+        <p class="phil-p">
+          Мы создавали «Вибрацию» как целостную среду, где каждая деталь работает на ваше состояние — от тактильного комфорта и натуральных материалов до мягкого света и уровня сопровождения. Это пространство, в котором формируется ощущение внутренней опоры, тишины и устойчивости.
+        </p>
+        <p class="phil-p">
+          В основе студии — тщательно подобранные практики: йога различных направлений, медитации, дыхательные техники, звуковая терапия и телесные практики глубокого расслабления. Все занятия выстроены так, чтобы вы могли двигаться в своём ритме — с вниманием к себе и ощутимым результатом.
+        </p>
+        <p class="phil-p">
+          Мы также работаем с корпоративными клиентами, создавая форматы для команд и руководителей, которым важно сохранять устойчивость, энергию и фокус в условиях высокой нагрузки.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Для кого -->
+  <div class="phil-section reveal">
+    <div class="phil-section-label">Для кого это место</div>
+    <h2 class="phil-h2">Не для всех. Для своих.</h2>
+    <p class="phil-p">
+      «Вибрация» — для тех, кто уже пробовал просто отдохнуть и понял, что этого недостаточно. Для тех, кто знает, что разовый массаж не снимает накопленную годами усталость. Для тех, кто чувствует необходимость внутренних перемен, но ищет безопасную точку входа.
+    </p>
+    <p class="phil-p">
+      Сюда приходят очень разные люди: и 25, и 50 лет, новички и опытные практики, те, кто ищет тишины, и те, кто ищет ответы на сложные внутренние вопросы. Нас объединяет одно — мы пришли сюда не ради галочки, а за искренним, наполняющим состоянием.
+    </p>
+    <p class="phil-p">
+      Если вы узнаёте себя — добро пожаловать. Ваше место уже готово.
+    </p>
+  </div>
+
+  <!-- MOTTO -->
+  <div class="phil-motto reveal">
+    <div class="phil-motto-text">
+      Изменения начинаются здесь.
+    </div>
+    <a href="index.html#booking" class="btn btn-primary">
+      Бронировать место
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 8h10M9 4l4 4-4 4"/>
+      </svg>
+    </a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#1A1714;padding:48px 24px;text-align:center;">
+  <div class="footer-links" style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:20px;font-family:'Unbounded', sans-serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;">
+    <a href="index.html" style="color:rgba(201,188,167,0.6);transition:color 0.35s;">Главная</a>
+    <a href="privacy.html" style="color:rgba(201,188,167,0.6);transition:color 0.35s;">Политика конфиденциальности</a>
+    <a href="offer.html" style="color:rgba(201,188,167,0.6);transition:color 0.35s;">Публичная оферта и правила</a>
+    <a href="legal.html" style="color:rgba(201,188,167,0.6);transition:color 0.35s;">Реквизиты</a>
+  </div>
+  <p style="font-size:0.78rem;color:rgba(201,188,167,0.35);">
+    © 2025–2026 Студия «Вибрация». Ярославль. Все права защищены.
+  </p>
+</footer>
+
+<script>
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
