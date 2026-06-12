@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Атмосфера и Пространство — «Вибрация». Ярославль</title>
+  <meta name="description" content="Интерьер и зоны студии практик «Вибрация»: Главный зал, Чайное пространство, Звуковая зона с гонгом, Входная группа. Чистота, тишина, эстетика.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Unbounded:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Unbounded:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </noscript>
+  <style>
+    :root {
+      --font-heading: 'Unbounded', system-ui, -apple-system, sans-serif;
+      --font-body: 'Tenor Sans', Georgia, serif;
+      --color-bg: #EFE7DA;
+      --color-bg-dark: #2A2620;
+      --color-stone: #C9BCA7;
+      --color-warm: #E5CBA8;
+      --color-accent: #B4916B;
+      --color-text: #2A2620;
+      --color-text-muted: #7A6E63;
+      --color-text-light: #EFE7DA;
+      --color-overlay: rgba(42,38,32,0.45);
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+      --transition-slow: 0.6s cubic-bezier(0.4,0,0.2,1);
+      --container: 1000px;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 24px;
+      --radius-pill: 100px;
+      --shadow-soft: 0 4px 24px rgba(42,38,32,0.08);
+
+      /* Neumorphic Shadows */
+      --shadow-neumorph-out: 8px 8px 16px #DDD2C1, -8px -8px 16px #ffffff;
+      --shadow-neumorph-in: inset 6px 6px 12px #DDD2C1, inset -6px -6px 12px #ffffff;
+      --shadow-neumorph-out-sm: 4px 4px 8px #DDD2C1, -4px -4px 8px #ffffff;
+      --shadow-neumorph-in-sm: inset 3px 3px 6px #DDD2C1, inset -3px -3px 6px #ffffff;
+
+      /* Dark Neumorphic Shadows */
+      --shadow-dark-out: 8px 8px 16px #1A1713, -8px -8px 16px #3A352D;
+      --shadow-dark-in: inset 6px 6px 12px #1A1713, inset -6px -6px 12px #3A352D;
+    }
+
+    @media (min-width: 1440px) {
+      :root {
+        --container: 1200px;
+      }
+      html {
+        font-size: 17px;
+      }
+    }
+
+    @media (min-width: 1600px) {
+      :root {
+        --container: 1300px;
+      }
+      html {
+        font-size: 18px;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.75;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { border: none; background: none; cursor: pointer; font-family: inherit; }
+
+    /* Decorative Shapes */
+    .deco-circle, .deco-oval {
+      position: absolute;
+      border: 1px solid var(--color-stone);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      background: rgba(239,231,218,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-stone);
+      box-shadow: var(--shadow-soft);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo img {
+      width: 40px; height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .nav-logo-text {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text);
+    }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      transition: color var(--transition);
+    }
+    .nav-back:hover { color: var(--color-accent); }
+    .nav-back svg { width: 18px; height: 18px; }
+
+    @media (min-width: 1025px) {
+      .nav-inner {
+        height: 80px;
+      }
+      .nav-logo img {
+        width: 44px;
+        height: 44px;
+      }
+      .nav-logo-text {
+        font-size: 1.05rem;
+      }
+      .nav-back {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* HERO */
+    .space-hero {
+      padding: 160px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .space-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+    .t-eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 20px;
+    }
+    .space-h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--color-text);
+      margin-bottom: 28px;
+    }
+    .space-hero-lead {
+      font-size: clamp(1rem, 1.5vw, 1.1rem);
+      color: var(--color-text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      max-width: var(--container);
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-stone);
+    }
+    .divider-symbol {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      color: var(--color-accent);
+      letter-spacing: 0.1em;
+    }
+
+    /* CONTENT CONTAINER */
+    .space-content {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ZONE SECTIONS */
+    .zone-section {
+      margin-bottom: 120px;
+      position: relative;
+    }
+    .zone-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .zone-grid.reverse {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+    .zone-image {
+      aspect-ratio: 4/3;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-neumorph-out);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+    }
+    .zone-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .zone-image:hover img {
+      transform: scale(1.04);
+    }
+    .zone-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .zone-slogan {
+      font-family: var(--font-heading);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+    .zone-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 300;
+      color: var(--color-text);
+      line-height: 1.3;
+    }
+    .zone-desc {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+
+    /* GALLERY */
+    .gallery-section {
+      margin-top: 40px;
+      margin-bottom: 100px;
+    }
+    .gallery-title {
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 48px;
+    }
+    .space-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .gallery-item {
+      aspect-ratio: 1/1;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow-neumorph-out-sm);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      position: relative;
+    }
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--color-overlay);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(20,18,14,0.95);
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 2001;
+    }
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      z-index: 2001;
+    }
+    .lightbox-prev { left: 24px; }
+    .lightbox-next { right: 24px; }
+    .lightbox-prev:hover, .lightbox-next:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    /* MOTTO BLOCK */
+    .space-motto {
+      margin: 40px auto 0;
+      padding: 64px 48px;
+      background: var(--color-warm);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      max-width: var(--container);
+      box-shadow: var(--shadow-neumorph-out);
+      position: relative;
+      overflow: hidden;
+    }
+    .space-motto::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      border: 1px solid rgba(42,38,32,0.06);
+    }
+    .space-motto-text {
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 300;
+      color: var(--color-bg-dark);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: var(--transition);
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: var(--shadow-dark-out-sm);
+    }
+    .btn-primary {
+      background: var(--color-bg-dark);
+      color: var(--color-warm);
+      border: 1.5px solid var(--color-bg-dark);
+    }
+    .btn-primary:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(180,145,107,0.3);
+    }
+    .btn svg { width: 16px; height: 16px; transition: transform var(--transition); }
+    .btn:hover svg { transform: translateX(4px); }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
+
+    /* FOOTER */
+    .footer {
+      background: #1A1714;
+      padding: 48px 24px;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .footer-links a {
+      color: rgba(201,188,167,0.6);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover {
+      color: var(--color-warm);
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(201,188,167,0.35);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .space-hero { padding: 130px 24px 60px; }
+      .zone-grid, .zone-grid.reverse { grid-template-columns: 1fr; gap: 32px; }
+      .zone-grid.reverse .zone-image { order: 0; }
+      .zone-grid.reverse .zone-content { order: 1; }
+      .space-gallery { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .space-motto { padding: 48px 24px; }
+      .lightbox-prev, .lightbox-next { display: none; } /* Hide navigation arrows on small mobile screens */
+      .footer-links { gap: 16px; flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .space-hero { padding: 100px 16px 50px; }
+      .space-content { padding: 0 16px 60px; }
+      .divider { padding: 0 16px; margin-bottom: 60px; }
+      .space-motto { padding: 36px 16px; }
+
+      .btn {
+        padding: 12px 24px;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        white-space: normal;
+        text-align: center;
+      }
+
+      .nav { padding: 0 16px; }
+      .nav-logo-text { font-size: 0.75rem; letter-spacing: 0.1em; }
+      .nav-back { font-size: 0.55rem; letter-spacing: 0.1em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.webp" alt="Вибрация">
+      <span class="nav-logo-text">Вибрация</span>
+    </a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M19 12H5M11 6l-6 6 6 6"/>
+      </svg>
+      На главную
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="space-hero">
+  <!-- Decorative Shapes -->
+  <div class="deco-circle" style="width:400px;height:400px;top:-150px;left:-100px;border-color:rgba(180,145,107,0.08);"></div>
+  <div class="deco-oval" style="width:300px;height:500px;bottom:-150px;right:-50px;border-color:rgba(180,145,107,0.06);"></div>
+  
+  <div class="space-hero-inner">
+    <span class="t-eyebrow">Эстетика · Атмосфера</span>
+    <h1 class="space-h1">
+      Пространство,<br>где оживают чувства.
+    </h1>
+    <p class="space-hero-lead">
+      Мы создали «Вибрацию» как убежище от городского шума. Здесь каждая деталь — от состава глиняной штукатурки до температуры заваривания коллекционного чая — подчинена одной цели: вернуть вас в контакт с собой.
+    </p>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true">
+  <div class="divider-line"></div>
+  <span class="divider-symbol">✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- CONTENT -->
+<div class="space-content">
+  <!-- Decorative Background Shape -->
+  <div class="deco-circle" style="width:500px;height:500px;top:40%;left:-250px;border-color:rgba(180,145,107,0.04);"></div>
+
+  <!-- ZONE 1: BODY PRACTICES -->
+  <div class="zone-section reveal" id="hall">
+    <div class="zone-grid">
+      <div class="zone-image" data-src="images/practice_warrior.webp">
+        <img src="images/practice_warrior.webp" alt="Телесные практики и йога в Главном зале" loading="lazy">
+      </div>
+      <div class="zone-content">
+        <span class="zone-slogan">01 · НАСТРОЙКА ФИЗИЧЕСКОЙ ОПОРЫ</span>
+        <h2 class="zone-title">Единое пространство. Телесный диалог с собой.</h2>
+        <p class="zone-desc">
+          Наш камерный зал спроектирован так, чтобы ничто не отвлекало от внутренних ощущений. Здесь нет зеркал и яркого света — только теплое дерево под ногами, дышащая глиняная штукатурка стен и мягкий полумрак от свечей.
+        </p>
+        <p class="zone-desc">
+          В этой бережной атмосфере проходят телесные практики и йога. Внимательный взгляд эксперта мягко корректирует ваше положение в асане, помогая безопасно раскрепостить тело. Практика становится не соревнованием, а глубоким диалогом с собой, где вы учитесь направлять дыхание в заблокированные зоны и возвращаете себе ощущение силы и свободы движения.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE 2: SOUND HEALING -->
+  <div class="zone-section reveal" id="tea">
+    <div class="zone-grid reverse">
+      <div class="zone-content">
+        <span class="zone-slogan">02 · РЕЗОНАНС И ТИШИНА</span>
+        <h2 class="zone-title">Звуковое погружение. Растворение ментального шума.</h2>
+        <p class="zone-desc">
+          Тот же зал меняет свое звучание, когда наступает время терапии звуком. Акустика пространства раскрывает глубокие обертоны планетарного гонга и резонанс тибетских поющих чаш.
+        </p>
+        <p class="zone-desc">
+          Укрывшись теплым пледом, вы ложитесь на коврик и позволяете звуковым волнам мягко омывать тело. Это момент полного доверия и сдачи. Ментальный шум затихает, мозг переходит в расслабленные тета-состояния, а тело запускает процессы естественного восстановления и освобождения от мышечных блоков, накопленных от городской суеты.
+        </p>
+      </div>
+      <div class="zone-image" data-src="images/sound_healing_gong.webp">
+        <img src="images/sound_healing_gong.webp" alt="Звуковая медитация под гонг и поющие чаши" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE 3: INTROSPECTION & TRANSFORMATION -->
+  <div class="zone-section reveal" id="gong">
+    <div class="zone-grid">
+      <div class="zone-image" data-src="images/sadhu_nails.webp">
+        <img src="images/sadhu_nails.webp" alt="Практика гвоздестояния на досках Садху" loading="lazy">
+      </div>
+      <div class="zone-content">
+        <span class="zone-slogan">03 · ВНУТРЕННИЙ ДИАЛОГ И ИНТЕГРАЦИЯ</span>
+        <h2 class="zone-title">Самопознание и чайный ритуал. Переход к новым сценариям.</h2>
+        <p class="zone-desc">
+          В атмосфере абсолютной конфиденциальности и безопасности проходят наши самые честные встречи с собой. Практика гвоздестояния на досках Садху с бережным проводником учит преодолевать страх, принимать и отпускать боль. А трансформационная игра Лила, МАК-карты и нейрографика помогают увидеть привычные жизненные сценарии и начать их менять.
+        </p>
+        <p class="zone-desc">
+          После глубокой внутренней работы пространство приглашает вас к чайной церемонии. Заваривание коллекционного чая в лаконичной посуде ваби-саби помогает бережно заземлить состояние и интегрировать полученный опыт.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZONE 4: CHAMBER EVENTS & SUPPORT -->
+  <div class="zone-section reveal" id="reception">
+    <div class="zone-grid reverse">
+      <div class="zone-content">
+        <span class="zone-slogan">04 · ЖЕНСКОЕ СЕСТРИНСТВО</span>
+        <h2 class="zone-title">Женские круги. Среда доверия и теплых объятий.</h2>
+        <p class="zone-desc">
+          Мы создавали «Вибрацию» как поддерживающую среду, где женщины могут снять маски, побыть собой и получить принятие без осуждения.
+        </p>
+        <p class="zone-desc">
+          Женские круги и творческие встречи проходят вокруг цветочной мандалы, в облаке ароматов пало санто и натурального сандала. Мы садимся вместе, держимся за руки, делимся сокровенным и находим ответы в историях друг друга. Каждая встреча завершается теплыми, поддерживающими объятиями, дарящими ощущение глубокой внутренней силы и сестринства.
+        </p>
+      </div>
+      <div class="zone-image" data-src="images/circle_mandala.webp">
+        <img src="images/circle_mandala.webp" alt="Женский круг вокруг цветочной мандалы" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY SECTION -->
+  <div class="gallery-section reveal">
+    <h2 class="gallery-title">Жизнь в пространстве</h2>
+    <div class="space-gallery">
+      <div class="gallery-item" data-src="images/practice_warrior.webp">
+        <img src="images/practice_warrior.webp" alt="Индивидуальная отстройка асаны с экспертом" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/practice_meditation.webp">
+        <img src="images/practice_meditation.webp" alt="Групповая медитация в Главном зале" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/practice_tree.webp">
+        <img src="images/practice_tree.webp" alt="Концентрация и баланс в позе Дерева" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/practice_cobra.webp">
+        <img src="images/practice_cobra.webp" alt="Глубокий прогиб и раскрытие грудного отдела" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/practice_group.webp">
+        <img src="images/practice_group.webp" alt="Разминка перед глубокой практикой" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/sound_healing_gong.webp">
+        <img src="images/sound_healing_gong.webp" alt="Звуковая медитация под звуки гонга" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/sadhu_nails.webp">
+        <img src="images/sadhu_nails.webp" alt="Практика гвоздестояния с проводником" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/lila_game.webp">
+        <img src="images/lila_game.webp" alt="Трансформационная игра Лила" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/mac_cards.webp">
+        <img src="images/mac_cards.webp" alt="Работа с метафорическими картами" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/neurography.webp">
+        <img src="images/neurography.webp" alt="Рисование нейрографики" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/circle_mandala.webp">
+        <img src="images/circle_mandala.webp" alt="Женский круг вокруг цветочной мандалы" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/circle_sharing.webp">
+        <img src="images/circle_sharing.webp" alt="Искреннее общение в кругу поддержки" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/circle_hugs.webp">
+        <img src="images/circle_hugs.webp" alt="Теплые объятия после завершения круга" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/experts_moon.webp">
+        <img src="images/experts_moon.webp" alt="Эксперты-проводники студии Вибрация" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/detail_singing_bowl.webp">
+        <img src="images/detail_singing_bowl.webp" alt="Детали: поющие чаши и свечи" loading="lazy">
+      </div>
+      <div class="gallery-item" data-src="images/detail_mac_cards.webp">
+        <img src="images/detail_mac_cards.webp" alt="Детали: кристаллы, розы и МАК-карты" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- MOTTO -->
+  <div class="space-motto reveal">
+    <div class="space-motto-text">
+      Позвольте себе замедлиться и услышать тишину.
+    </div>
+    <a href="index.html#booking" class="btn btn-primary">
+      Забронировать практику
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 8h10M9 4l4 4-4 4"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Просмотр фото">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">&times;</button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Предыдущее">&#8592;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" id="lightboxNext" aria-label="Следующее">&#8594;</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="index.html">Главная</a>
+    <a href="privacy.html">Политика конфиденциальности</a>
+    <a href="offer.html">Публичная оферта и правила</a>
+    <a href="legal.html">Реквизиты</a>
+  </div>
+  <p class="footer-copy">
+    © 2025–2026 Студия «Вибрация». Ярославль. Все права защищены.
+  </p>
+</footer>
+
+<script>
+  /* ========================
+     SCROLL REVEAL
+  ======================== */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ========================
+     LIGHTBOX
+  ======================== */
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  let lbImages = [];
+  let lbIndex = 0;
+
+  // Add click handlers to both zone images and gallery items
+  const clickableItems = document.querySelectorAll('.zone-image, .gallery-item');
+  clickableItems.forEach((item, i) => {
+    item.addEventListener('click', () => {
+      lbImages = Array.from(clickableItems).map(el => el.dataset.src || el.querySelector('img').src);
+      lbIndex = lbImages.indexOf(item.dataset.src || item.querySelector('img').src);
+      openLightbox(lbImages[lbIndex]);
+    });
+  });
+
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+  document.getElementById('lightboxPrev').addEventListener('click', () => {
+    lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+    lightboxImg.src = lbImages[lbIndex];
+  });
+
+  document.getElementById('lightboxNext').addEventListener('click', () => {
+    lbIndex = (lbIndex + 1) % lbImages.length;
+    lightboxImg.src = lbImages[lbIndex];
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; lightboxImg.src = lbImages[lbIndex]; }
+    if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; lightboxImg.src = lbImages[lbIndex]; }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реквизиты и контакты — «Вибрация». Ярославль</title>
+  <meta name="description" content="Официальные реквизиты индивидуального предпринимателя, контактная информация и правовые сведения студии практик «Вибрация» в Ярославле.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Unbounded:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Unbounded:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </noscript>
+  <style>
+    :root {
+      --font-heading: 'Unbounded', system-ui, -apple-system, sans-serif;
+      --font-body: 'Tenor Sans', Georgia, serif;
+      --color-bg: #EFE7DA;
+      --color-bg-dark: #2A2620;
+      --color-stone: #C9BCA7;
+      --color-warm: #E5CBA8;
+      --color-accent: #B4916B;
+      --color-text: #2A2620;
+      --color-text-muted: #7A6E63;
+      --color-text-light: #EFE7DA;
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+      --container: 800px;
+      --radius-lg: 24px;
+      --shadow-soft: 0 4px 24px rgba(42,38,32,0.08);
+      --shadow-neumorph-out: 8px 8px 16px #DDD2C1, -8px -8px 16px #ffffff;
+    }
+
+    @media (min-width: 1440px) {
+      :root {
+        --container: 900px;
+      }
+      html {
+        font-size: 17px;
+      }
+    }
+
+    @media (min-width: 1600px) {
+      :root {
+        --container: 960px;
+      }
+      html {
+        font-size: 18px;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.75;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      background: rgba(239,231,218,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-stone);
+      box-shadow: var(--shadow-soft);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo img {
+      width: 40px; height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .nav-logo-text {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text);
+    }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      transition: color var(--transition);
+    }
+    .nav-back:hover { color: var(--color-accent); }
+    .nav-back svg { width: 18px; height: 18px; }
+
+    @media (min-width: 1025px) {
+      .nav-inner {
+        height: 80px;
+      }
+      .nav-logo img {
+        width: 44px;
+        height: 44px;
+      }
+      .nav-logo-text {
+        font-size: 1.05rem;
+      }
+      .nav-back {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* CONTENT */
+    .legal-hero {
+      padding: 160px 24px 60px;
+      text-align: center;
+      position: relative;
+    }
+    .legal-h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    .t-eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .legal-content {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+
+    .legal-section {
+      margin-bottom: 40px;
+      padding: 40px;
+      background: var(--color-bg);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-neumorph-out);
+    }
+
+    .legal-h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--color-text);
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(180, 145, 107, 0.25);
+      padding-bottom: 12px;
+    }
+
+    .legal-p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .legal-p:last-child { margin-bottom: 0; }
+
+    /* REQUISITES TABLE */
+    .requisites-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    .requisites-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(201, 188, 167, 0.3);
+      vertical-align: top;
+    }
+    .requisites-table td:first-child {
+      font-weight: bold;
+      color: var(--color-text);
+      width: 35%;
+      padding-left: 0;
+    }
+    .requisites-table td:last-child {
+      color: var(--color-text-muted);
+      padding-right: 0;
+    }
+    .requisites-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #1A1714;
+      padding: 48px 24px;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .footer-links a {
+      color: rgba(201,188,167,0.6);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover {
+      color: var(--color-warm);
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(201,188,167,0.35);
+    }
+
+    @media (max-width: 768px) {
+      .legal-hero { padding: 130px 24px 40px; }
+      .legal-section { padding: 24px; }
+      .requisites-table td { display: block; width: 100% !important; padding: 6px 0; }
+      .requisites-table td:first-child { font-weight: bold; padding-top: 12px; }
+      .footer-links { gap: 16px; flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .legal-hero { padding: 100px 16px 30px; }
+      .legal-content { padding: 0 16px 60px; }
+      .legal-section { padding: 20px 16px; }
+      .nav { padding: 0 16px; }
+      .nav-logo-text { font-size: 0.75rem; letter-spacing: 0.1em; }
+      .nav-back { font-size: 0.55rem; letter-spacing: 0.1em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.webp" alt="Вибрация">
+      <span class="nav-logo-text">Вибрация</span>
+    </a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M19 12H5M11 6l-6 6 6 6"/>
+      </svg>
+      На главную
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="legal-hero">
+  <span class="t-eyebrow">Юридическая информация</span>
+  <h1 class="legal-h1">Реквизиты и контакты</h1>
+</header>
+
+<!-- CONTENT -->
+<main class="legal-content">
+
+  <div class="legal-section">
+    <h2 class="legal-h2">Общие сведения</h2>
+    <p class="legal-p">
+      Ниже представлена официальная юридическая информация об Индивидуальном предпринимателе Шайдецкой Яне Александровне, владельце студии практик «Вибрация» в г. Ярославле.
+    </p>
+    
+    <table class="requisites-table">
+      <tr>
+        <td>Наименование организации</td>
+        <td>Индивидуальный предприниматель Шайдецкая Яна Александровна (ИП Шайдецкая Я.А.)</td>
+      </tr>
+      <tr>
+        <td>ИНН</td>
+        <td>760412345678 (замените на ваш ИНН)</td>
+      </tr>
+      <tr>
+        <td>ОГРНИП</td>
+        <td>324760000012345 (замените на ваш ОГРНИП)</td>
+      </tr>
+      <tr>
+        <td>Юридический адрес</td>
+        <td>150000, Россия, г. Ярославль, ул. Некрасова, д. 68</td>
+      </tr>
+      <tr>
+        <td>Фактический адрес</td>
+        <td>150000, Россия, г. Ярославль, ул. Некрасова, д. 68</td>
+      </tr>
+      <tr>
+        <td>Режим работы студии</td>
+        <td>Ежедневно по расписанию занятий</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="legal-section">
+    <h2 class="legal-h2">Банковские реквизиты</h2>
+    <p class="legal-p">
+      Данные реквизиты используются для безналичных расчетов в студии или выставления счетов юридическим лицам (при организации корпоративных программ):
+    </p>
+    
+    <table class="requisites-table">
+      <tr>
+        <td>Расчетный счет</td>
+        <td>40802810000000012345 (замените на ваш р/с)</td>
+      </tr>
+      <tr>
+        <td>Название банка</td>
+        <td>АО «ТБанк» (или другой обслуживающий банк)</td>
+      </tr>
+      <tr>
+        <td>БИК</td>
+        <td>044525974</td>
+      </tr>
+      <tr>
+        <td>Корреспондентский счет</td>
+        <td>30101810145250000974</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="legal-section">
+    <h2 class="legal-h2">Контактная информация</h2>
+    
+    <table class="requisites-table">
+      <tr>
+        <td>Телефон</td>
+        <td><a href="tel:+79108149832" class="legal-link-inline">+7 (910) 814-98-32</a></td>
+      </tr>
+      <tr>
+        <td>Электронная почта</td>
+        <td><a href="mailto:hello@vibration-studio.ru" class="legal-link-inline">hello@vibration-studio.ru</a></td>
+      </tr>
+      <tr>
+        <td>Социальные сети</td>
+        <td><a href="https://vk.com/vibration_studio" target="_blank" rel="noopener" class="legal-link-inline">Сообщество ВКонтакте</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="legal-section">
+    <h2 class="legal-h2">Сведения о лицензировании и характере услуг</h2>
+    <p class="legal-p">
+      <b>Вид деятельности:</b> Студия «Вибрация» осуществляет деятельность по оказанию физкультурно-оздоровительных услуг (занятия йогой различных направлений, звуковая терапия, дыхательные и телесные практики релаксации, женские круги). Данные услуги классифицируются в соответствии с ОКВЭД 96.04 «Деятельность физкультурно-оздоровительная».
+    </p>
+    <p class="legal-p">
+      <b>Лицензирование:</b> В соответствии с Федеральным законом РФ от 04.05.2011 № 99-ФЗ «О лицензировании отдельных видов деятельности», физкультурно-оздоровительная деятельность (включая занятия йогой и медитации) **не входит в перечень лицензируемых видов деятельности**.
+    </p>
+    <p class="legal-p">
+      Студия не осуществляет медицинскую деятельность и не оказывает образовательных услуг по программам дополнительного или профессионального образования (которые требовали бы наличия медицинских или образовательных лицензий).
+    </p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="index.html">Главная</a>
+    <a href="privacy.html">Политика конфиденциальности</a>
+    <a href="offer.html">Публичная оферта и правила</a>
+  </div>
+  <div class="footer-copy">
+    © 2025–2026 Студия «Вибрация». Ярославль. Все права защищены.
+  </div>
+</footer>
+
+</body>
+</html>
